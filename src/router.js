@@ -1,12 +1,16 @@
 import React from "react";
 import Home from "./pages/Home";
+import Latest from "./pages/Latest";
 
-const routes =[
+const router =[
   {
     path: "/",
-    element: <Home />,
-
+    element: <Home />
+  },
+  {
+    path:"/Latest",
+    element: <Latest />
   }
   ];
 
-export default routes;
+export default router;
