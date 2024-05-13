@@ -1,11 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from '../components/Navbar.js';
+import '../App.css';
 import React, { useState, useEffect } from 'react';
 import {getDocs, collection} from 'firebase/firestore';
-import {db} from './config/firebase';
+import {db} from '../config/firebase';
 
 
-function App() {
+function Home() {
   const [products, setProducts] = useState([])
 
   //collection ref to database
@@ -29,12 +29,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        
+      <header>
+        <Navbar />
       </header>
       <div>
         <h1>Your db is going to live here</h1>
@@ -45,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
