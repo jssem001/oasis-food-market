@@ -1,5 +1,4 @@
 import Navbar from '../components/Navbar.js';
-import '../App.css';
 import React, { useState, useEffect } from 'react';
 import {getDocs, collection} from 'firebase/firestore';
 import {db} from '../config/firebase';
