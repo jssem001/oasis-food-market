@@ -8,6 +8,7 @@ module.exports = {
       'oasis-light': '#daeaca',
       'oasis-dark': '#0d750c',
       'flamingo': '#DA0063',
+      'flame': '#F24726',
     },
   },
   plugins: [],
