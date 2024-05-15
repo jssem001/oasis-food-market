@@ -16,7 +16,7 @@ module.exports = {
     },
   },
   plugins: [
-    // require('flowbite/plugin')  Included at style stage
+    // require('flowbite/plugin')//  Included at style stage
   ],
 }
 

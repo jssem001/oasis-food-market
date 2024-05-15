@@ -1,8 +1,7 @@
-import Navbar from '../components/Navbar.js';
-import React, { useState, useEffect } from 'react';
-import {getDocs, collection} from 'firebase/firestore';
-import {db} from '../config/firebase';
-import Footer from '../components/Footer.js';
+import Navbar from '../components/Navbar.js'; import React, { useState, useEffect } from 'react';
+import {getDocs, collection} from 'firebase/firestore'; import {db} from '../config/firebase';
+import Footer from '../components/Footer.js'; import PopularProducts from '../components/PopProducts.js';
+import LatestProducts from '../components/LatestProducts.js'; import RecentView from '../components/RecentView.js';
 
 
 function Home() {
@@ -33,9 +32,12 @@ function Home() {
         <Navbar />
       </header>
       <div>
-        <h1>Your db is going to live here</h1>
+        <h1 className='ml-3'>Your db is going to live here</h1>
         {products.map((product)=>
-        <li>Name: {product.name} Price: {product.price}</li>)}      
+        <li>Name: {product.name} Price: {product.price}</li>)}
+        <PopularProducts />
+        <RecentView />
+        <LatestProducts />      
       </div>
       <Footer />
     </div>
