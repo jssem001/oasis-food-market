@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function MyProducts(){
 
@@ -7,6 +8,7 @@ function MyProducts(){
         <div>
             <Navbar />
             <h1>My Products Page</h1>
+            <Footer />
         </div>
     )
 }

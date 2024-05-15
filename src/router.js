@@ -1,9 +1,7 @@
-import React from "react";
-import Home from "./pages/Home";
-import Latest from "./pages/Latest";
-import MyProducts from "./pages/MyProducts";
-import Settings from "./pages/Settings";
-import Cart from "./pages/Cart";
+import React from "react"; import Home from "./pages/Home";
+import Latest from "./pages/Latest"; import MyProducts from "./pages/MyProducts";
+import Settings from "./pages/Settings"; import Cart from "./pages/Cart";
+import Category1 from "./pages/category1";
 
 const router =[
   {
@@ -25,6 +23,10 @@ const router =[
   {
     path:"/Cart",
     element: <Cart />
+  },
+  {
+    path:"/Category1",
+    element: <Category1 />
   }
   ];
 

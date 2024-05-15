@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar.js';
 import React, { useState, useEffect } from 'react';
 import {getDocs, collection} from 'firebase/firestore';
 import {db} from '../config/firebase';
+import Footer from '../components/Footer.js';
 
 
 function Home() {
@@ -36,6 +37,7 @@ function Home() {
         {products.map((product)=>
         <li>Name: {product.name} Price: {product.price}</li>)}      
       </div>
+      <Footer />
     </div>
   );
 }

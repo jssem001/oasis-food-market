@@ -2,15 +2,15 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-function Latest(){
+function Category1(){
 
     return(
         <div>
             <Navbar />
-            <h1>Latest Page</h1>
+            <h1>Category1 Page</h1>
             <Footer />
         </div>
     )
 }
 
-export default Latest;
+export default Category1;
