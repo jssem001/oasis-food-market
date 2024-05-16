@@ -1,6 +1,7 @@
 import React, { useState } from "react"; import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"; import { Button, Label, TextInput } from "flowbite-react"
 import { db } from "../config/firebase"; import { collection, addDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 function MyProducts(){
     const [addName,setAddName] = useState("")
@@ -35,8 +36,9 @@ function MyProducts(){
                 </div>
                 <TextInput type="email" placeholder="ex. 300" required shadow onChange={(e) => setAddPrice(e.target.value)} />
             </div>
-            
+            <Link to='/'>
             <Button className="dark:text-oasis-white bg-oasis-dark" onClick={handleSubmit} type="submit">Submit</Button>
+            </Link>
             </form>
 
 
