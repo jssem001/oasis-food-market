@@ -33,11 +33,11 @@ function Home() {
       </header>
       <div>
         <h1 className='ml-3'>Your db is going to live here</h1>
-        {products.map((product)=>
-        <li>Name: {product.name} Price: {product.price}</li>)}
-        <PopularProducts />
-        <RecentView />
-        <LatestProducts />      
+        {/* {products.map((product)=>
+        <li>Name: {product.name} Price: {product.price}</li>)} */}
+        <PopularProducts products={products}/>
+        <RecentView products={products}/>
+        <LatestProducts products={products}/>      
       </div>
       <Footer />
     </div>
