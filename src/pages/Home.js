@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar.js'; import React, { useState, useEffec
 import {getDocs, collection} from 'firebase/firestore'; import {db} from '../config/firebase';
 import Footer from '../components/Footer.js'; import PopularProducts from '../components/PopProducts.js';
 import LatestProducts from '../components/LatestProducts.js'; import RecentView from '../components/RecentView.js';
+import ErrorPage from './ErrorPage.js';
 
 
 function Home() {
@@ -20,7 +21,8 @@ function Home() {
       ))
       setProducts(filtered)
       }catch(err){
-        console.err(err)
+        // console.err(err)
+        <ErrorPage />
       }
     } 
     getProducts()
@@ -33,8 +35,6 @@ function Home() {
       </header>
       <div>
         <h1 className='ml-3'>Your db is going to live here</h1>
-        {/* {products.map((product)=>
-        <li>Name: {product.name} Price: {product.price}</li>)} */}
         <PopularProducts products={products}/>
         <RecentView products={products}/>
         <LatestProducts products={products}/>      
