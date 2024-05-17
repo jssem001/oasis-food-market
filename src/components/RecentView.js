@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Card} from "flowbite-react"
 import ProductCard from "./ProductCard";
+import { ProductsContext } from "../contexts/ProductsContext";
 
-function RecentView({products}){
-
+function RecentView(){
+    const products = useContext(ProductsContext)
     return(
         <>
         <Card href="#" className="ml-3 mr-3 mb-3 max-w-7xl dark:bg-oasis-light" data-carousel="slide">
