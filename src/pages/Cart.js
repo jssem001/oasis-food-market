@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Cart(){
 
@@ -7,6 +8,7 @@ function Cart(){
         <div>
             <Navbar />
             <h1>Shopping Cart</h1>
+            <Footer />
         </div>
     )
 }

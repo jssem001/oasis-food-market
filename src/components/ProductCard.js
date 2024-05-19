@@ -5,7 +5,7 @@ function ProductCard({name, price}){
 
     return(
         <Card
-        className="max-w-md ml-3 mb-2"
+        className="max-w-md ml-3 mr-3 mb-2"
         imgAlt="Meaningful alt text for an image that is not purely decorative"
         imgSrc="https://www.tasteofhome.com/wp-content/uploads/2019/09/red-and-green-apples-e1566828641939-1024x681.jpg"
       >

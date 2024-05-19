@@ -42,7 +42,7 @@ function MyProducts(){
                 <TextInput type="number" placeholder="ex. 300" required shadow onChange={(e) => setAddPrice(e.target.value)} />
             </div>
 
-            <Button id='submit-button' className="dark:text-oasis-white bg-oasis-dark" type="submit">Submit</Button>
+            <Button id='submit-button' className="text-white bg-green-900" type="submit"><span className="ml-3">Submit</span></Button>
 
             </form>
 
