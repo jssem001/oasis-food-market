@@ -2,7 +2,7 @@ import React from "react"; import Home from "./pages/Home";
 import Latest from "./pages/Latest"; import MyProducts from "./pages/MyProducts";
 import Settings from "./pages/Settings"; import Cart from "./pages/Cart";
 import Category1 from "./pages/category1"; import ErrorPage from "./pages/ErrorPage";
-
+import SingleProduct from "./pages/SingleProduct"; import UpdateProduct from "./pages/UpdateProduct";
 const router =[
   {
     path: "/",
@@ -28,6 +28,14 @@ const router =[
   {
     path:"/Category1",
     element: <Category1 />
+  },
+  {
+    path: "/ProductCard/:id",
+    element: <SingleProduct />
+  },
+  {
+    path: "/update-product/:id",
+    element: <UpdateProduct />
   }
   ];
 

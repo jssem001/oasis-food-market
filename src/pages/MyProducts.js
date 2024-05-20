@@ -1,13 +1,12 @@
-import React, { useState, /* useContext */ } from "react"; import Navbar from "../components/Navbar";
+import React, { useState } from "react"; import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"; import { Button, Label, TextInput } from "flowbite-react"
 import { db } from "../config/firebase"; import { collection, addDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom"; /* import { ProductsContext } from '../contexts/ProductsContext'; */
+import { useNavigate } from "react-router-dom";
 
 function MyProducts(){
     const [addName,setAddName] = useState("")
     const [addPrice,setAddPrice] = useState("")
     const navigate = useNavigate()
-    // const products = useContext(ProductsContext);
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -33,7 +32,7 @@ function MyProducts(){
                 <div className="mb-2 block">
                 <Label htmlFor="productName" value="Product Name" />
                 </div>
-                <TextInput id="email2" type="text" placeholder="name..." required shadow onChange={(e) => setAddName(e.target.value)} />
+                <TextInput id="email2" type="text" placeholder="ex. seedlings" required shadow onChange={(e) => setAddName(e.target.value)} />
             </div>
             <div>
                 <div className="mb-2 block">
