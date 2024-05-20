@@ -6,28 +6,6 @@ import { ProductsProvider } from '../contexts/ProductsContext.js';
 
 
 function Home() {
-  // const [products, setProducts] = useState([])
-
-  // //collection ref to database
-  // const productsColRef = collection(db,"products")
-
-  // useEffect(() =>{
-  //   //READ product data
-  //   const getProducts = async() =>{
-  //     try {
-  //     const data = await getDocs(productsColRef)
-  //     const filtered = data.docs.map((doc) =>(
-  //       {...doc.data(), id: doc.id}
-  //     ))
-  //     setProducts(filtered)
-  //     }catch(err){
-      
-  //     }
-  //   } 
-  //   getProducts()
-  // }, [productsColRef])
-
-  
 
   return (
     <ProductsProvider>
