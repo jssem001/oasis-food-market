@@ -6,7 +6,7 @@ function ProductCard({name, price}){
 
     return(
         <Card
-        className="max-w-md ml-3 mr-3 mb-2"
+        className="max-w-md ml-3 mr-3 mb-2 bg-white"
         imgAlt="Product Image"
         imgSrc= {sheep}
       >
