@@ -51,7 +51,7 @@ function PopularProducts(){
                 <Slider {...settings}>
                 {products.map((product)=>
                 <Link to={`/ProductCard/${product.id}`}>
-                <ProductCard key={product.id} name={product.name} price={product.price}/></Link> )}
+                <ProductCard key={product.id} imageUrl={product.imageUrl} name={product.name} price={product.price}/></Link> )}
                 </Slider>
             </div>
                 

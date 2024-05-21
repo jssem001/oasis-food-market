@@ -51,7 +51,7 @@ function RecentView(){
             <div class="w-5/6 m-auto mb-5">
                 <Slider {...settings}>
                 {products.map((product)=>
-                <ProductCard key={product.id} name={product.name} price={product.price}/>)}
+                <ProductCard key={product.id} imageUrl={product.imageUrl} name={product.name} price={product.price}/>)}
                 </Slider>
             </div>
                 

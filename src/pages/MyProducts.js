@@ -1,20 +1,41 @@
 import React, { useState } from "react"; import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"; import { Button, Label, TextInput } from "flowbite-react"
-import { db } from "../config/firebase"; import { collection, addDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { db, storage } from "../config/firebase"; import { collection, addDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom"; import {ref, uploadBytes, getDownloadURL} from "firebase/storage";
 
 function MyProducts(){
+    const [imageUpload, setImageUpload] = useState(null);
+    //const [imageUrl, setImageUrl] = useState([]);
     const [addName,setAddName] = useState("")
     const [addPrice,setAddPrice] = useState("")
     const navigate = useNavigate()
 
+    // const imagesListRef = ref(storage, "images/");
+
+    const handleChange = (e) => {
+        if (e.target.files[0]){
+        setImageUpload(e.target.files[0]);
+        }};
+
     const handleSubmit = async(e) => {
+        if (imageUpload == null) return;
+        const imageRef = ref(storage, `images/${imageUpload.name}`);
+        
+
         e.preventDefault();
         try {
+            await uploadBytes(imageRef, imageUpload)
+            const downloadURL = await getDownloadURL(imageRef)
+            //setImageUrl(downloadURL);
+            
+            
+            //Adding data to firebase collection
             await addDoc(collection(db,"products"),{
+                imageUrl: downloadURL,
                 name: addName,
                 price: addPrice,
             });
+            setImageUpload("")
             setAddName("");
             setAddPrice("");
             navigate('/')
@@ -23,12 +44,17 @@ function MyProducts(){
         }
     };
 
+
+
     return(
         <div>
             <Navbar />
             <h1>Add New Product</h1>
+            {/* <img class="object-cover h-48 w-96" src={imageUrl} alt="Uploaded"></img> */}
             <form onSubmit={handleSubmit} className="ml-3 flex max-w-md flex-col gap-4">
             <div>
+                <Label htmlFor="productImage" value="Product Image" />
+                <input className="block rounded-md bg-gray-50 border border-gray-300" type="file" onChange={handleChange} />
                 <div className="mb-2 block">
                 <Label htmlFor="productName" value="Product Name" />
                 </div>

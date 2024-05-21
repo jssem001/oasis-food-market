@@ -7,7 +7,7 @@ function Navbar(){
 
     return(
         <div>
-            <nav className="bg-lime-200 border-gray-200">
+            <nav className="bg-lime-200 border-gray-200 mb-2">
                 <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 mr-4">
                     <img src={logo} class="h-28 w-md" alt="oasis Logo" />
                     <div class="hidden w-full md:block md:w-auto" id="navbar-default">

@@ -54,8 +54,8 @@ function SingleProduct(){
         
         <div>
             <Navbar />
-            <div>
-            <ProductCard key={product.id} name={product.name} price={product.price}/>
+            <ProductCard key={product.id} imageUrl={product.imageUrl} name={product.name} price={product.price}/>
+            <div className='flex flex-wrap gap-[300px]'>
             <Button id='update-button' onClick={handleUpdate} className="text-black bg-lime-500 ml-3" type="submit"><span className="ml-3 mr-3">Update</span></Button>
             <Button id='delete-button' onClick={handleDelete} className="text-white bg-red-700 ml-3" type="submit"><span className="ml-3 mr-3">Delete</span></Button>
             </div>

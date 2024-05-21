@@ -6,7 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 function UpdateProduct(){
 
   const { id } = useParams();
-  const navigate = useNavigate();
+  const navigate = useNavigate();// eslint-disable-next-line
+  const [productImage,setProductImage] = useState("")
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
   
@@ -17,6 +18,7 @@ function UpdateProduct(){
         const productSnap = await getDoc(productRef);
         if (productSnap.exists()) {
           const productData = productSnap.data();
+          setProductImage(productData.imageUrl);
           setProductName(productData.name);
           setProductPrice(productData.price);
         } else {
@@ -51,6 +53,8 @@ function UpdateProduct(){
             <h1>Update your products details</h1>
             <form className="ml-3 flex max-w-md flex-col gap-4" onSubmit={handleUpdate}>
             <div>
+                <Label htmlFor="productImage" value="Product Image" />
+                <input type="file" className="block rounded-md bg-gray-50 border border-gray-300" onChange={(e) => setProductImage(e.target.value)}/>
                 <div className="mb-2 block">
                 <Label htmlFor="productName" value="Product Name" />
                 </div>
