@@ -4,7 +4,6 @@ import { db } from "../config/firebase"; import { doc, getDoc, updateDoc } from 
 import { useNavigate, useParams } from "react-router-dom";
 
 function UpdateProduct(){
-
   const { id } = useParams();
   const navigate = useNavigate();// eslint-disable-next-line
   const [productImage,setProductImage] = useState("")
@@ -68,13 +67,8 @@ function UpdateProduct(){
                 <TextInput type="number" placeholder="ex. 300" required value={productPrice}
                 onChange={(e) => setProductPrice(e.target.value)} shadow />
             </div>
-
             <Button id='update-button' className="text-black bg-lime-500" type="submit"><span className="ml-3">Submit</span></Button>
-
             </form>
-
-
-
             <Footer />
         </div>
     )

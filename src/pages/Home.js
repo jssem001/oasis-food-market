@@ -12,7 +12,6 @@ function Home() {
         <Navbar />
       </header>
       <div>
-        <h1 className='ml-3'>Your db is going to live here</h1>
         <PopularProducts/>
         <RecentView />
         <LatestProducts />

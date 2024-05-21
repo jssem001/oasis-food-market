@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom"; import {ref, uploadBytes, getDow
 
 function MyProducts(){
     const [imageUpload, setImageUpload] = useState(null);
-    //const [imageUrl, setImageUrl] = useState([]);
     const [addName,setAddName] = useState("")
     const [addPrice,setAddPrice] = useState("")
     const navigate = useNavigate()
@@ -50,7 +49,6 @@ function MyProducts(){
         <div>
             <Navbar />
             <h1>Add New Product</h1>
-            {/* <img class="object-cover h-48 w-96" src={imageUrl} alt="Uploaded"></img> */}
             <form onSubmit={handleSubmit} className="ml-3 flex max-w-md flex-col gap-4">
             <div>
                 <Label htmlFor="productImage" value="Product Image" />
