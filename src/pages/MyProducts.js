@@ -2,6 +2,7 @@ import React, { useState } from "react"; import Navbar from "../components/Navba
 import Footer from "../components/Footer"; import { Button, Label, TextInput } from "flowbite-react"
 import { db, storage } from "../config/firebase"; import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom"; import {ref, uploadBytes, getDownloadURL} from "firebase/storage";
+import ProductList from "../components/ProductList";
 
 function MyProducts(){
     const [imageUpload, setImageUpload] = useState(null);
@@ -48,7 +49,7 @@ function MyProducts(){
     return(
         <div>
             <Navbar />
-            <h1>Add New Product</h1>
+            <h1 className="ml-3 mb-3 text-2xl font-bold">Add New Product</h1>
             <form onSubmit={handleSubmit} className="ml-3 flex max-w-md flex-col gap-4">
             <div>
                 <Label htmlFor="productImage" value="Product Image" />
@@ -68,7 +69,8 @@ function MyProducts(){
             <Button id='submit-button' className="text-white bg-green-900" type="submit"><span className="ml-3">Submit</span></Button>
 
             </form>
-
+            <h1 className="mb-3 text-center text-2xl font-bold">My Products</h1>
+            <ProductList />
 
 
             <Footer />
