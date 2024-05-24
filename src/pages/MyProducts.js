@@ -1,10 +1,11 @@
-import React, { useState } from "react"; import Navbar from "../components/Navbar";
+import React, { useState, useContext } from "react"; import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"; import { Button, Label, TextInput } from "flowbite-react"
 import { db, storage } from "../config/firebase"; import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom"; import {ref, uploadBytes, getDownloadURL} from "firebase/storage";
-import ProductList from "../components/ProductList";
+import ProductList from "../components/ProductList"; import { ProductsContext } from "../contexts/ProductsContext";
 
 function MyProducts(){
+    const products= useContext(ProductsContext)
     const [imageUpload, setImageUpload] = useState(null);
     const [addName,setAddName] = useState("")
     const [addPrice,setAddPrice] = useState("")
@@ -70,7 +71,7 @@ function MyProducts(){
 
             </form>
             <h1 className="mb-3 text-center text-2xl font-bold">My Products</h1>
-            <ProductList />
+            <ProductList products={products}/>
 
 
             <Footer />
