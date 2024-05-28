@@ -70,12 +70,7 @@ function Cart(){
                         </dl>
 
                         <dl class="flex items-center justify-between gap-4">
-                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Savings</dt>
-                            <dd class="text-base font-medium text-green-600">-KES 299.00</dd>
-                        </dl>
-
-                        <dl class="flex items-center justify-between gap-4">
-                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Store Pickup</dt>
+                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Fees</dt>
                             <dd class="text-base font-medium text-gray-900 dark:text-white">KES 99</dd>
                         </dl>
 
@@ -105,13 +100,22 @@ function Cart(){
                     </div>
                     {/* Voucher */}
                     <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-                    <form class="space-y-4">
-                        <div>
-                        <label for="voucher" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Do you have a voucher or gift card? </label>
-                        <input type="text" id="voucher" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="" required />
+                    
+                        <label for="voucher" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Delivery Method </label>
+                        
+                        <div class="flex">
+                            <div class="flex items-center h-5">
+                                <input id="helper-radio" aria-describedby="helper-radio-text" type="radio" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                            </div>
+                            <div class="ms-2 text-sm">
+                                <label for="helper-radio" class="font-medium text-gray-900 dark:text-gray-300">Pick Up</label>
+                                <p id="helper-radio-text" class="text-xs font-normal text-gray-500 dark:text-gray-300">Collect your order from 123 St, Nairobi</p>
+                            </div>
                         </div>
-                        <button type="submit" class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply Code</button>
-                    </form>
+                        <div class="flex items-center">
+                            <input checked id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                            <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Delivery</label>
+                        </div>
                     </div>
                 </div>
                 </div>
