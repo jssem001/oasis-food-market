@@ -1,6 +1,6 @@
 import React, {useState} from "react"; import { Button } from "flowbite-react";
 
-function CartItem() {
+function CartItem({item}) {
     const [quantity,setQuantity] = useState(1)
 
     const handleIncrement = () => {
@@ -22,7 +22,7 @@ function CartItem() {
                             <img class="hidden h-20 w-20 dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="imac image" />
                         </a>
                         {/* Item Counter */}
-                        <label for="counter-input" class="sr-only">Choose quantity:</label>
+                        <label for="counter-input" class="text-gray-900 sr-only">Choose quantity:</label>
                         <div class="flex items-center justify-between md:order-3 md:justify-end">
                             <div class="flex items-center">
                             <button type="button" id="decrement-button" onClick={handleDecrement} data-input-counter-decrement="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
@@ -38,12 +38,12 @@ function CartItem() {
                             </button>
                             </div>
                             <div class="text-end md:order-4 md:w-32">
-                            <p class="text-base font-bold text-gray-900 dark:text-white">KES 1,499</p>{/* Price */}
+                            <p class="text-base font-bold text-gray-900 dark:text-white">KES {item.price}</p>{/* Price */}
                             </div>
                         </div>
                         {/* Item Details */}
                         <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
-                            <a href="#" class="text-base font-medium text-gray-900 hover:underline dark:text-white">Product</a>
+                            <a href="#" class="text-base font-medium text-gray-900 hover:underline dark:text-white">Product: {item.name}</a>
 
                             <div class="flex items-center gap-4">
                             
