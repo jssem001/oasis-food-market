@@ -39,7 +39,7 @@ function BuyPage() {
             <Navbar />
             <ProductCard key={product.id} imageUrl={product.imageUrl} name={product.name} price={product.price}/>
             <div className='flex flex-wrap gap-[235px]'>
-            <Button id='buy-button' className="text-black bg-lime-500 ml-3" type="submit"><span className="ml-3 mr-3">Add to Cart</span></Button>
+            <Button id='buy-button' className="text-black bg-yellow-300 ml-3" type="submit"><span className="ml-3 mr-3">Add to Cart</span></Button>
             </div>
             <Footer />
         </div>

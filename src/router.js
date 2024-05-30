@@ -1,6 +1,6 @@
 import React from "react"; import Home from "./pages/Home"; import BuyPage from "./pages/BuyPage";
 import Latest from "./pages/Latest"; import MyProducts from "./pages/MyProducts";
-import Settings from "./pages/Settings"; import Cart from "./pages/Cart";
+import Settings from "./pages/Settings"; import Cart from "./pages/Cart"; import Checkout from "./pages/Checkout";
 import Category1 from "./pages/category1"; import ErrorPage from "./pages/ErrorPage";
 import SingleProduct from "./pages/SingleProduct"; import UpdateProduct from "./pages/UpdateProduct";
 const router =[
@@ -40,6 +40,10 @@ const router =[
   {
     path: "/buy-page/:id",
     element: <BuyPage />
+  },
+  {
+    path:"/Checkout",
+    element: <Checkout />
   }
   ];
 
