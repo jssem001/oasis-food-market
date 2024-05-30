@@ -43,6 +43,9 @@ function Cart(){
 
     // Calculate the original price based on cart items and quantities
     const originalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    const fees = 47
+    const tax = 99
+    const fullAmount = originalPrice + fees + tax
 
     const handleOptionClick = (option) => {
         setSelectedOption((prevOption) => (prevOption === option ? '' : option));
@@ -117,18 +120,18 @@ function Cart(){
 
                                         <dl className="flex items-center justify-between gap-4">
                                             <dt className="text-base font-normal text-gray-500 dark:text-gray-400">Fees</dt>
-                                            <dd className="text-base font-medium text-gray-900 dark:text-white">KES 99</dd>
+                                            <dd className="text-base font-medium text-gray-900 dark:text-white">KES {fees}</dd>
                                         </dl>
 
                                         <dl className="flex items-center justify-between gap-4">
                                             <dt className="text-base font-normal text-gray-500 dark:text-gray-400">Tax</dt>
-                                            <dd className="text-base font-medium text-gray-900 dark:text-white">KES 799</dd>
+                                            <dd className="text-base font-medium text-gray-900 dark:text-white">KES {tax}</dd>
                                         </dl>
                                     </div>
 
                                     <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
                                         <dt className="text-base font-bold text-gray-900 dark:text-white">Total</dt>
-                                        <dd className="text-base font-bold text-gray-900 dark:text-white">KES 8,191.00</dd>
+                                        <dd className="text-base font-bold text-gray-900 dark:text-white">KES {fullAmount.toFixed(2)}</dd>
                                     </dl>
                                 </div>
 
