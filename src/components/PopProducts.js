@@ -49,7 +49,7 @@ function PopularProducts(){
             <div class=" w-5/6 m-auto mb-5">
                 <Slider {...settings}>
                 {products.map((product)=>
-                <Link to={`/ProductCard/${product.id}`}>
+                <Link to={`/buy-page/${product.id}`}>
                 <ProductCard key={product.id} imageUrl={product.imageUrl} name={product.name} price={product.price}/></Link> )}
                 </Slider>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react"; import Navbar from "../components/Navbar";
-import Footer from "../components/Footer"; import ProductList from "../components/ProductList";
+import Footer from "../components/Footer"; import LatestList from "../components/LatestList";
 import Search from "../components/Search"; import { ProductsContext } from "../contexts/ProductsContext";
 
 
@@ -14,9 +14,7 @@ function Latest(){
             <Navbar />
             <h1 className="ml-3 mb-3 text-2xl text-center font-bold">All Products</h1>
             <Search search={typedSearch} onSearchChange={setTypedSearch} />
-            {/* {transToDisplay.map((product) => 
-            <ProductList key={product.id} imageUrl={product.imageUrl} name={product.name} price={product.price} />)} */}
-            <ProductList products={transToDisplay} />
+            <LatestList products={transToDisplay} />
             <Footer />
         </div>
     )

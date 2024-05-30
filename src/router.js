@@ -1,4 +1,4 @@
-import React from "react"; import Home from "./pages/Home";
+import React from "react"; import Home from "./pages/Home"; import BuyPage from "./pages/BuyPage";
 import Latest from "./pages/Latest"; import MyProducts from "./pages/MyProducts";
 import Settings from "./pages/Settings"; import Cart from "./pages/Cart";
 import Category1 from "./pages/category1"; import ErrorPage from "./pages/ErrorPage";
@@ -30,12 +30,16 @@ const router =[
     element: <Category1 />
   },
   {
-    path: "/ProductCard/:id",
+    path: "/single-product/:id",
     element: <SingleProduct />
   },
   {
     path: "/update-product/:id",
     element: <UpdateProduct />
+  },
+  {
+    path: "/buy-page/:id",
+    element: <BuyPage />
   }
   ];
 
