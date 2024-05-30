@@ -1,8 +1,14 @@
-import React from "react"; import Navbar from "../components/Navbar";
+import React,{useState} from "react"; import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"; import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
 function Cart(){
+    const [selectedOption, setSelectedOption] = useState('');
+    const [address, setAddress] = useState('');
+
+    const handleOptionClick = (option) => {
+        setSelectedOption((prevOption) => (prevOption === option ? '' : option));
+    };
 
     return(
         <div>
@@ -61,7 +67,8 @@ function Cart(){
                         
                         <div class="flex">
                             <div class="flex items-center h-5">
-                                <input id="helper-radio" aria-describedby="helper-radio-text" type="radio" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                                <input id="pick-up-radio" type="radio" name="delivery-method" checked={selectedOption === 'pick-up'}
+                                onChange={() => handleOptionClick('pick-up')} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
                             </div>
                             <div class="ms-2 text-sm">
                                 <label for="helper-radio" class="font-medium text-gray-900 dark:text-gray-300">Pick Up</label>
@@ -69,9 +76,18 @@ function Cart(){
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <input checked id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                            <input id="delivery-radio" type="radio" name="delivery-method" checked={selectedOption === 'delivery'}
+                            onChange={() => handleOptionClick('delivery')} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                             <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Delivery</label>
                         </div>
+                        {selectedOption === 'delivery' && (
+                        <div className="mt-4">
+                            <input id="address-input" type="text" value={address}
+                            onChange={(e) => setAddress(e.target.value)} placeholder="Enter your address"
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                            />
+                        </div>
+                        )}
                     </div>
                 </div>
                 </div>

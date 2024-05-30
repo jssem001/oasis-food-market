@@ -1,12 +1,18 @@
-import React from "react"; import { Button } from "flowbite-react";
+import React, {useState} from "react"; import { Button } from "flowbite-react";
 
 function CartItem() {
+    const [quantity,setQuantity] = useState(1)
+
+    const handleIncrement = () => {
+        setQuantity(quantity + 1)
+    }
+    const handleDecrement = () => {
+        if(quantity > 1){
+            setQuantity(quantity - 1)
+        }
+    }
     return (
         <>
-         {/* <section class="bg-white py-3 antialiased dark:bg-gray-900 md:py-8"> */}
-             {/* <div class="mx-auto max-w-screen-xl px-4 2xl:px-0"> */}
-                {/* <h1 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">Shopping Cart</h1> */}
-                {/* <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8"> */}
                  <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
                     <div class="space-y-6">
                     <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
@@ -19,13 +25,13 @@ function CartItem() {
                         <label for="counter-input" class="sr-only">Choose quantity:</label>
                         <div class="flex items-center justify-between md:order-3 md:justify-end">
                             <div class="flex items-center">
-                            <button type="button" id="decrement-button" data-input-counter-decrement="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                            <button type="button" id="decrement-button" onClick={handleDecrement} data-input-counter-decrement="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
                                 <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                                 </svg>
                             </button>
-                            <input type="text" id="counter-input" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value="2" required /> {/* Counter Input */}
-                            <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                            <input type="text" id="counter-input" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white" placeholder="" value={quantity} read only required /> {/* Counter Input */}
+                            <button type="button" id="increment-button" onClick={handleIncrement} data-input-counter-increment="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
                                 <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                                 </svg>
@@ -41,8 +47,8 @@ function CartItem() {
 
                             <div class="flex items-center gap-4">
                             
-                            <Button id='remove-button'  className="text-white bg-gray-700" type="submit"><span className="ml-3 mr-3">Add to Favorites</span></Button>
-                            <Button id='remove-button'  className="text-white bg-red-700 ml-3" type="submit"><span className="ml-3 mr-3">Remove</span></Button>
+                            <Button id='remove-button'  className="text-white bg-gray-700" type="button"><span className="ml-3 mr-3">Add to Favorites</span></Button>
+                            <Button id='remove-button'  className="text-white bg-red-700 ml-3" type="button"><span className="ml-3 mr-3">Remove</span></Button>
 
                             </div>
                         </div>
@@ -50,9 +56,6 @@ function CartItem() {
                     </div>
                     </div>
                 </div>
-            {/* </div> */}
-            {/* </div> */}
-        {/* </section> */}
         </>
     );
 }
