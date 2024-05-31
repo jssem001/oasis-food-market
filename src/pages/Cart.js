@@ -7,7 +7,7 @@ function Cart(){
     const [selectedOption, setSelectedOption] = useState('');
     const [address, setAddress] = useState('');
     const [cartItems, setCartItems] = useState([]);
-    const [quantity,setQuantity] = useState(1)
+    
 
     const handleIncrement = (itemId) => {
         setCartItems(prevItems =>
