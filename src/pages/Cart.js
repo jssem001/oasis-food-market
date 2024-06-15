@@ -1,48 +1,69 @@
 import React,{useState, useEffect} from "react"; import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"; import { Link } from "react-router-dom";
-// import CartItem from "../components/CartItem"; 
+import { useCart } from "../contexts/CartContext";
 import { Button } from "flowbite-react";
 
 function Cart(){
     const [selectedOption, setSelectedOption] = useState('');
     const [address, setAddress] = useState('');
-    const [cartItems, setCartItems] = useState([]);
-    
+    //const [cartItems, setCartItems] = useState([]);
+    const {cart, dispatch} = useCart()
 
-    const handleIncrement = (itemId) => {
-        setCartItems(prevItems =>
-            prevItems.map(item =>
-                item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
-            )
-        );
+    // const handleIncrement = (itemId) => {
+    //     setCartItems(prevItems =>
+    //         prevItems.map(item =>
+    //             item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
+    //         )
+    //     );
+    // };
+    const handleIncrement = (productId) => {
+        dispatch({
+            type: 'UPDATE_QUANTITY',
+            payload: { id: productId, quantity: cart.find(product => product.id === productId).quantity + 1 }
+        });
     };
-    
-    const handleDecrement = (itemId) => {
-        setCartItems(prevItems =>
-            prevItems.map(item =>
-                item.id === itemId && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
-            )
-        );
+
+    const handleDecrement = (productId) => {
+        const product = cart.find(product => product.id === productId);
+        if (product.quantity > 1) {
+            dispatch({
+                type: 'UPDATE_QUANTITY',
+                payload: { id: productId, quantity: product.quantity - 1 }
+            });
+        }
     };
+
+    const handleRemove = (productId) => {
+        dispatch({ type: 'REMOVE_FROM_CART', payload: { id: productId } });
+    };
+
+
+    // const handleDecrement = (itemId) => {
+    //     setCartItems(prevItems =>
+    //         prevItems.map(item =>
+    //             item.id === itemId && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
+    //         )
+    //     );
+    // };
 
     // Sample cart items data structure
-    const sampleCartItems = [
-        { id: 1, name: "Item 1", price: 100, quantity: 1},
-        { id: 2, name: "Item 2", price: 50, quantity: 1},
-        { id: 3, name: "Item 3", price: 75, quantity: 1},
-        { id: 4, name: "Item 4", price: 200, quantity: 1},
-        // Add more items as needed
-    ];
+    // const sampleCartItems = [
+    //     { id: 1, name: "Item 1", price: 100, quantity: 1},
+    //     { id: 2, name: "Item 2", price: 50, quantity: 1},
+    //     { id: 3, name: "Item 3", price: 75, quantity: 1},
+    //     { id: 4, name: "Item 4", price: 200, quantity: 1},
+    //     // Add more items as needed
+    // ];
 
     // Simulated fetch of cart items data
-    useEffect(() => {
-        // Replace this with your actual fetch logic
-        // For demonstration purposes, setting sample data directly
-        setCartItems(sampleCartItems);
-    }, []);
+    // useEffect(() => {
+    //     // Replace this with your actual fetch logic
+    //     // For demonstration purposes, setting sample data directly
+    //     setCartItems(sampleCartItems);
+    // }, []);
 
     // Calculate the original price based on cart items and quantities
-    const originalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    const originalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
     const fees = 47
     const tax = 99
     const fullAmount = originalPrice + fees + tax
@@ -60,15 +81,12 @@ function Cart(){
 
                     <div className="mt-6 sm:mt-8 md:gap-6 lg:flex lg:flex-col xl:gap-8">
                         {/* CartCard */}
-                        {cartItems.map(item => (
+                        {cart.map(item => (
                             <div key={item.id} className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
                                 <div className="space-y-6">
                                     <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
-                                        <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
-                                            <a href="#" className="shrink-0 md:order-1">
-                                                <img className="h-20 w-20 dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg" alt="imac image" />
-                                                <img className="hidden h-20 w-20 dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="imac image" />
-                                            </a>
+                                        <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">        
+                                            <img className="h-20 w-20 dark:hidden" src={item.imageUrl} alt="item image" />            
                                             {/* Item Counter */}
                                             <label htmlFor={`counter-input-${item.id}`} className="sr-only">Choose quantity:</label>
                                             <div className="flex items-center justify-between md:order-3 md:justify-end">
@@ -93,11 +111,11 @@ function Cart(){
                                             </div>
                                             {/* Item Details */}
                                             <div className="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
-                                                <a href="#" className="text-base font-medium text-gray-900 hover:underline dark:text-white">Product: {item.name}</a>
+                                                <a href="#" className="text-base font-medium text-gray-900 hover:underline dark:text-white">{item.name}</a>
 
                                                 <div className="flex items-center gap-4">
                                                     <Button id='remove-button' className="text-white bg-gray-700" type="button"><span className="ml-3 mr-3">Add to Favorites</span></Button>
-                                                    <Button id='remove-button' className="text-white bg-red-700 ml-3" type="button"><span className="ml-3 mr-3">Remove</span></Button>
+                                                    <Button id='remove-button' className="text-white bg-red-700 ml-3" type="button" onClick={() => handleRemove(item.id)}><span className="ml-3 mr-3">Remove</span></Button>
                                                 </div>
                                             </div>
                                         </div>

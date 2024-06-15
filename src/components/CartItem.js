@@ -1,16 +1,6 @@
 import React, {useState} from "react"; import { Button } from "flowbite-react";
 
 function CartItem({item}) {
-    const [quantity,setQuantity] = useState(1)
-
-    const handleIncrement = () => {
-        setQuantity(quantity + 1)
-    }
-    const handleDecrement = () => {
-        if(quantity > 1){
-            setQuantity(quantity - 1)
-        }
-    }
     return (
         <>
                  <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
