@@ -64,9 +64,12 @@ function Cart(){
 
     // Calculate the original price based on cart items and quantities
     const originalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-    const fees = 47
-    const tax = 99
+    const fees = (originalPrice * 0.005)
+    const tax = (originalPrice * 0.008)
     const fullAmount = originalPrice + fees + tax
+
+
+
 
     const handleOptionClick = (option) => {
         setSelectedOption((prevOption) => (prevOption === option ? '' : option));

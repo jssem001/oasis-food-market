@@ -34,6 +34,7 @@ function BuyPage() {
     const handleAddToCart = () => {
       if (product) {
           dispatch({ type: 'ADD_TO_CART', payload: { ...product, quantity: 1 } });
+          window.alert('Item added to cart!')
       }
     };
   
