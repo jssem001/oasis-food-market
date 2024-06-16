@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react"; import Navbar from "../components/Navbar";
+import React,{useState} from "react"; import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"; import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import { Button } from "flowbite-react";
@@ -6,16 +6,8 @@ import { Button } from "flowbite-react";
 function Cart(){
     const [selectedOption, setSelectedOption] = useState('');
     const [address, setAddress] = useState('');
-    //const [cartItems, setCartItems] = useState([]);
-    const {cart, dispatch} = useCart()
+    const {cart, dispatch, originalPrice, fees, tax, fullAmount} = useCart()
 
-    // const handleIncrement = (itemId) => {
-    //     setCartItems(prevItems =>
-    //         prevItems.map(item =>
-    //             item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
-    //         )
-    //     );
-    // };
     const handleIncrement = (productId) => {
         dispatch({
             type: 'UPDATE_QUANTITY',
@@ -38,38 +30,11 @@ function Cart(){
     };
 
 
-    // const handleDecrement = (itemId) => {
-    //     setCartItems(prevItems =>
-    //         prevItems.map(item =>
-    //             item.id === itemId && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
-    //         )
-    //     );
-    // };
-
-    // Sample cart items data structure
-    // const sampleCartItems = [
-    //     { id: 1, name: "Item 1", price: 100, quantity: 1},
-    //     { id: 2, name: "Item 2", price: 50, quantity: 1},
-    //     { id: 3, name: "Item 3", price: 75, quantity: 1},
-    //     { id: 4, name: "Item 4", price: 200, quantity: 1},
-    //     // Add more items as needed
-    // ];
-
-    // Simulated fetch of cart items data
-    // useEffect(() => {
-    //     // Replace this with your actual fetch logic
-    //     // For demonstration purposes, setting sample data directly
-    //     setCartItems(sampleCartItems);
-    // }, []);
-
     // Calculate the original price based on cart items and quantities
-    const originalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-    const fees = (originalPrice * 0.005)
-    const tax = (originalPrice * 0.008)
-    const fullAmount = originalPrice + fees + tax
-
-
-
+    // const originalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    // const fees = (originalPrice * 0.005)
+    // const tax = (originalPrice * 0.008)
+    // const fullAmount = originalPrice + fees + tax
 
     const handleOptionClick = (option) => {
         setSelectedOption((prevOption) => (prevOption === option ? '' : option));
@@ -117,7 +82,7 @@ function Cart(){
                                                 <a href="#" className="text-base font-medium text-gray-900 hover:underline dark:text-white">{item.name}</a>
 
                                                 <div className="flex items-center gap-4">
-                                                    <Button id='remove-button' className="text-white bg-gray-700" type="button"><span className="ml-3 mr-3">Add to Favorites</span></Button>
+                                                    {/* <Button id='remove-button' className="text-white bg-gray-700" type="button"><span className="ml-3 mr-3">Add to Favorites</span></Button> */}
                                                     <Button id='remove-button' className="text-white bg-red-700 ml-3" type="button" onClick={() => handleRemove(item.id)}><span className="ml-3 mr-3">Remove</span></Button>
                                                 </div>
                                             </div>

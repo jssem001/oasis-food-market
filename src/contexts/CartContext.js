@@ -27,11 +27,37 @@ const cartReducer = (state, action) => {
   }
 };
 
+const calculateOriginalPrice = (cart) => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+  
+  const calculateFees = (originalPrice) => {
+    return originalPrice * 0.005;
+  };
+  
+  const calculateTax = (originalPrice) => {
+    return originalPrice * 0.008;
+  };
+  
+  const calculateFullAmount = (originalPrice, fees, tax) => {
+    return originalPrice + fees + tax;
+  };
+
+// const originalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+// const fees = (originalPrice * 0.005)
+// const tax = (originalPrice * 0.008)
+// const fullAmount = originalPrice + fees + tax
+
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, []);
+  const originalPrice = calculateOriginalPrice(state);
+  const fees = calculateFees(originalPrice);
+  const tax = calculateTax(originalPrice);
+  const fullAmount = calculateFullAmount(originalPrice, fees, tax);
+
 
   return (
-    <CartContext.Provider value={{ cart: state, dispatch }}>
+    <CartContext.Provider value={{ cart: state, dispatch,originalPrice,fees,tax,fullAmount }}>
       {children}
     </CartContext.Provider>
   );
