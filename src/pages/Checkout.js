@@ -4,6 +4,11 @@ import Footer from "../components/Footer"; import { useCart } from "../contexts/
 function Checkout() {
     const {originalPrice, fees, tax, fullAmount} = useCart()
 
+    const handlePayment = () => {   
+        window.alert('Order confirmed successfully!')
+    }
+
+
     return (
         <div>
             <Navbar />
@@ -22,7 +27,7 @@ function Checkout() {
 
                     <div class="col-span-2 sm:col-span-1">
                     <label for="card-number-input" class="mb-2 block text-sm font-medium text-gray-900 "> Card number* </label>
-                    <input type="text" id="card-number-input" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="xxxx-xxxx-xxxx-xxxx" pattern="^4[0-9]{12}(?:[0-9]{3})?$" required />
+                    <input type="text" id="card-number-input" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="xxxx-xxxx-xxxx-xxxx"  required />
                     </div>
 
                     <div>
@@ -37,7 +42,7 @@ function Checkout() {
                             />
                         </svg>
                         </div>
-                        <input datepicker datepicker-format="mm/yy" id="card-expiration-input" type="text" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="12/23" required />
+                        <input datepicker datepicker-format="mm/yy" id="card-expiration-input" type="text" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="12/26" required />
                     </div>
                     </div>
                     <div>
@@ -57,7 +62,7 @@ function Checkout() {
                     </div>
                 </div>
 
-                <button type="submit" class="flex w-full items-center justify-center rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Pay now</button>
+                <button id="pay-button" type="submit" class="flex w-full items-center justify-center rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={handlePayment}>Pay now</button>
                 </form>
 
                 <div class="mt-6 grow sm:mt-8 lg:mt-0">

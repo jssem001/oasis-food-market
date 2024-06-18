@@ -40,7 +40,7 @@ function UpdateProduct(){
         price: parseFloat(productPrice),
       });
       console.log("Product updated successfully");
-      navigate(`/ProductCard/${id}`);
+      navigate(`/single-product/${id}`);
     } catch (err) {
       console.error("Error updating product: ", err);
     }
@@ -67,7 +67,7 @@ function UpdateProduct(){
                 <TextInput type="number" placeholder="ex. 300" required value={productPrice}
                 onChange={(e) => setProductPrice(e.target.value)} shadow />
             </div>
-            <Button id='update-button' className="text-black bg-lime-500" type="submit"><span className="ml-3">Submit</span></Button>
+            <Button id='update-button' className="text-black bg-lime-500" type="submit" onClick={handleUpdate}><span className="ml-3">Submit</span></Button>
             </form>
             <Footer />
         </div>
