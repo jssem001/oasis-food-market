@@ -101,10 +101,6 @@ function Checkout() {
                 </div>
             </div>
 
-            <p class="mt-6 text-center text-gray-500 400 sm:mt-8 lg:text-left">
-                Payment processed by <a href="#" title="" class="font-medium text-primary-700 underline hover:no-underline ry-500">Paddle</a> for <a href="#" title="" class="font-medium text-primary-700 underline hover:no-underline ry-500">Flowbite LLC</a>
-                - United States Of America
-            </p>
             </div>
         </div>
         </section>
