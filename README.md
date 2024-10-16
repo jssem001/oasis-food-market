@@ -1,84 +1,53 @@
-# Getting Started with Create React App
+# OASIS FARMERS MARKET 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app is designed to be a marketplace for Farmers to shop for and sell food and agricultral products.
 
-## Available Scripts
+### By Joshua Ssemwanga
 
-In the project directory, you can run:
 
-### `npm start`
+## FEATURES
+*All users should be able to:*
+* Update their profile
+* Reset their password
+* View all the products on the website
+* View the products that they are selling
+* Search and buy for a specific product(s)
+  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*A vendor should be able to:*
+* Post a new product they want to sell
+* View all the products that they are selling
+* Edit the products that they are selling
+* Delete a product
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*A buyer should be able to:*
+* Buy a product
+* Add multiple items to the cart
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## SETUP INSTRUCTIONS
+For the frontend, head to the frontend folder using your terminal and run `npm install` to install the dependencies
+Then run `npm run dev` to start up the frontend port.
 
-### `npm run build`
+For the backend, head to the backend folder using your terminal and run `pipenv install` to install the required dependencies
+Then run `pipenv shell` to start up the virtual environment, and then run the `app.py` file using either `python3 app.py` or `python app.py` (depending on the version of python you have installed). This should start your backend.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## PAGES
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Shopping for Items
+https://github.com/user-attachments/assets/6749a423-08e2-4c8c-8f9b-f68de7066db5
 
-### `npm run eject`
+Viewing Products
+https://github.com/user-attachments/assets/764dfe66-7c61-4023-95f6-6cabeffe4c0a
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Search for Products
+https://github.com/user-attachments/assets/214cde43-1bd3-40bd-b745-74e25879c01e
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify]
+Add and Update products
+https://github.com/user-attachments/assets/0345fbd6-4941-4c33-92e7-517653bb3fbd
 
 
 
-
-
-
-https://github.com/user-attachments/assets/db9d7bdc-779e-43bd-9114-e97831640624
-
-
-
-
-
-
-(https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## LICENCE
+OASIS Farmers App is licensed under the MIT License.
